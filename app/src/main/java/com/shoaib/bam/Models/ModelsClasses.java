@@ -104,6 +104,8 @@ public class ModelsClasses {
     public static class RoomModel
     {
         public String roomId;
+        public String roomName;
+        public String PhoneNumber;
         public String bookingStatus;
         public String roomNumber;
         public String bookedTime;
@@ -115,11 +117,16 @@ public class ModelsClasses {
         public String BookToTime;
         public String BookFromDate;
         public String BookToDate;
+        public String officeName;
+        public String officeId;
+
+
 
         public RoomModel(String roomId, String bookingStatus, String roomNumber,
                  String bookedTime, String openingTiming, String clossingTiming,
                  String bookedById, String BookedByName, String BookFromTime,
-                 String BookToTime, String BookFromDate, String BookToDate)
+                 String BookToTime, String BookFromDate, String BookToDate,
+                         String roomName, String PhoneNumber, String officeName, String officeId)
         {
             this.roomId = roomId;
             this.bookingStatus = bookingStatus;
@@ -133,6 +140,11 @@ public class ModelsClasses {
             this.BookToTime = BookToTime;
             this.BookFromDate = BookFromDate;
             this.BookToDate = BookToDate;
+            this.officeName = officeName;
+            this.officeId = officeId;
+            this.roomName = roomName;
+            this.PhoneNumber = PhoneNumber;
+
         }
     }
 }

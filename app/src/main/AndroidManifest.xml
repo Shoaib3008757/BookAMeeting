@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BAM">
-        <activity android:name=".activities.RegisterOfficeAndRoom.RegisteringRoom"></activity>
+        <activity android:name=".activities.RegisterOfficeAndRoom.RegisteringRoom"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".activities.BaseActivityForDrawer"
             android:screenOrientation="portrait"
