@@ -81,7 +81,7 @@ public class RegisteringRoom extends AppCompatActivity {
         tv_selected_office_id = (TextView) findViewById(R.id.tv_selected_office_id);
         rl_bg = (RelativeLayout) findViewById(R.id.rl_bg);
         spin_kit = (SpinKitView) findViewById(R.id.spin_kit);
-
+        dataLis = new ArrayList<>();
         getAllOfficesFromDB();
     }
 
@@ -278,7 +278,7 @@ public class RegisteringRoom extends AppCompatActivity {
                 {
                     for (DataSnapshot office : snapshot.getChildren())
                     {
-
+                        Log.e("TAg", "the reusl beam is sd " + office.getValue());
                         ModelsClasses.OfficeModel beam = office.getValue(ModelsClasses.OfficeModel.class);
                         Log.e("TAg", "the reusl beam is " + beam);
                          String officeId = beam.officeId;
@@ -314,7 +314,14 @@ public class RegisteringRoom extends AppCompatActivity {
 
                     rl_bg.setVisibility(View.GONE);
                     spin_kit.setVisibility(View.GONE);
+
                     listClick(dataLis);
+                    if(dataLis.size()>0)
+                    {
+                        sp_office.setText(dataLis.get(0).get(ConstantValues.name));
+                        tv_selected_office_id.setText(dataLis.get(0).get(ConstantValues.officeId));
+
+                    }
                 }
                 else {
                     rl_bg.setVisibility(View.GONE);

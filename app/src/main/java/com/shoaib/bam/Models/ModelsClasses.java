@@ -79,7 +79,7 @@ public class ModelsClasses {
         public String closingTiming;
         public String OfficeNumber;
 
-
+        public  OfficeModel(){}
         public OfficeModel(String officeId, String name, String address,
                  String lat, String lng, String bookingStatus,
                  String ownerName, String companyName, String openingTiming,
@@ -121,6 +121,7 @@ public class ModelsClasses {
         public String officeId;
 
 
+        public  RoomModel(){}
 
         public RoomModel(String roomId, String bookingStatus, String roomNumber,
                  String bookedTime, String openingTiming, String clossingTiming,
