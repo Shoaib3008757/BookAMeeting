@@ -3,29 +3,19 @@ package com.shoaib.bam.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.shoaib.bam.R;
-import com.shoaib.bam.utilities.ConstantValues;
+import com.shoaib.bam.activities.RegisterOfficeAndRoom.RegisteringRoom;
+import com.shoaib.bam.activities.RegisterOfficeAndRoom.RegisteringOffice;
 import com.shoaib.bam.utilities.SharedPrefs;
 
 public class BaseActivityForDrawer extends AppCompatActivity {
@@ -80,10 +70,28 @@ public class BaseActivityForDrawer extends AppCompatActivity {
                 }
 
 
+
+
+                if (menuItem.getItemId()== R.id.menu_add_office)
+                {
+                    Intent i = new Intent(BaseActivityForDrawer.this, RegisteringOffice.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+
+
+                }
+                if (menuItem.getItemId()== R.id.menu_add_room)
+                {
+                    Intent i = new Intent(BaseActivityForDrawer.this, RegisteringRoom.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                }
                 if (menuItem.getItemId()== R.id.menu_settings)
                 {
 
                 }
+
+
 
 
                 return false;

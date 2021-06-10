@@ -4,6 +4,14 @@
 
 
         <item
+            android:id="@+id/menu_add_office"
+            android:icon="@android:drawable/ic_secure"
+            android:title="Add New Office" />
+        <item
+            android:id="@+id/menu_add_room"
+            android:icon="@android:drawable/ic_secure"
+            android:title="Add New Room" />
+        <item
             android:id="@+id/menu_settings"
             android:icon="@android:drawable/ic_secure"
             android:title="Settings" />

@@ -65,4 +65,74 @@ public class ModelsClasses {
 
         }
     }
+
+    public static class OfficeModel{
+        public String officeId;
+        public String name;
+        public String address;
+        public String lat;
+        public String lng;
+        public String bookingStatus;
+        public String ownerName;
+        public String companyName;
+        public String openingTiming;
+        public String closingTiming;
+        public String OfficeNumber;
+
+
+        public OfficeModel(String officeId, String name, String address,
+                 String lat, String lng, String bookingStatus,
+                 String ownerName, String companyName, String openingTiming,
+                            String closingTiming, String OfficeNumber)
+        {
+            this.officeId = officeId;
+            this.name = name;
+            this.address = address;
+            this.lat = lat;
+            this.lng = lng;
+            this.bookingStatus = bookingStatus;
+            this.ownerName = ownerName;
+            this.companyName = companyName;
+            this.openingTiming = openingTiming;
+            this.closingTiming = closingTiming;
+            this.OfficeNumber = OfficeNumber;
+
+
+        }
+    }
+
+    public static class RoomModel
+    {
+        public String roomId;
+        public String bookingStatus;
+        public String roomNumber;
+        public String bookedTime;
+        public String openingTiming;
+        public String clossingTiming;
+        public String bookedById;
+        public String BookedByName;
+        public String BookFromTime;
+        public String BookToTime;
+        public String BookFromDate;
+        public String BookToDate;
+
+        public RoomModel(String roomId, String bookingStatus, String roomNumber,
+                 String bookedTime, String openingTiming, String clossingTiming,
+                 String bookedById, String BookedByName, String BookFromTime,
+                 String BookToTime, String BookFromDate, String BookToDate)
+        {
+            this.roomId = roomId;
+            this.bookingStatus = bookingStatus;
+            this.roomNumber = roomNumber;
+            this.bookedTime = bookedTime;
+            this.openingTiming = openingTiming;
+            this.clossingTiming = clossingTiming;
+            this.bookedById = bookedById;
+            this.BookedByName = BookedByName;
+            this.BookFromTime = BookFromTime;
+            this.BookToTime = BookToTime;
+            this.BookFromDate = BookFromDate;
+            this.BookToDate = BookToDate;
+        }
+    }
 }
