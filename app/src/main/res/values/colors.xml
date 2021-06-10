@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blackAlfa">#4f585050</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="off_white">#FDFDFD</color>
+    <color name="my_color">#E1F9F9F4</color>
+    <color name="grey">#646361</color>
+    <color name="red">#FFFF0000</color>
+    <color name="litred">#dbc91919</color>
+    <color name="light_red">#FF4E4E</color>
+    <color name="green">#00ff00</color>
+    <color name="green2">#128312</color>
+    <color name="light_green">#2B552B</color>
+
+    <color name="greentransparent2">#83128312</color>
+    <color name="lightPurple">#95b450b4</color>
+    <color name="Purple">#F7B450B4</color>
+
+    <color name="orange">#FF8C00</color>
+    <color name="brown">#a0582d</color>
+    <color name="yellow">#a7af0f</color>
+    <color name="yellow1">#e7b330</color>
+
+    <color name="light_grey">#DCDCDC</color>
+    <color name="light_grey_tr">#e1dcdcdc</color>
+    <color name="light_grey_t">#edc1c0c0</color>
+    <color name="dark_grey">#696969</color>
+    <color name="blue">#0000ff</color>
+    <color name="light_blue">#4271f4</color>
+    <color name="light_blue1">#28b7f1</color>
+    <color name="fab_spot_sele">#60b75a</color>
+    <color name="fab_spot_selet">#7560b75a</color>
+
+    <color name="fab_stock">#334d5c</color>
+    <color name="fab_stockt">#85334d5c</color>
+    <color name="text_shadow_white">#FFFFFF</color>
+    <color name="text_shadow">#F0EBEB</color>
+
+    <color name="grey_font">#ff9e9e9e</color>
+
+    <color name="blue_dim">#01727D</color>
+    <color name="colorPink">#de6177</color>
+    <color name="colorPinkt">#54DE6177</color>
+    <color name="redish">#840c2c</color>
+    <color name="disable">#e98c9d</color>
+
+    <color name="color_off_white">#faf9f9</color>
+    <color name="color_text_hint">#676262</color>
+    <color name="color_line_color">#c4c1c1</color>
+    <color name="color_line_color_1">#75c4c1c1</color>
+    <color name="oragne_red">#f63b01</color>
+
+    <color name="colorWhite">#fff</color>
+
+    <color name="today">#4b82ff</color>
+    <color name="greyed_out">#c7c7c7</color>
+
+    <color name="summer">#44eebd82</color>
+    <color name="fall">#44d8d27e</color>
+    <color name="winter">#44a1c1da</color>
+    <color name="spring">#448da64b</color>
+
+    <color name="calendarBlock">#000</color>
+    <color name="tab_color">#d7393b</color>
+    <color name="cardColor">#ab33</color>
+
+    <color name="normal_day">#ff999999</color>
+    <color name="selected_day_background">#E75F49</color>
+    <color name="selected_day_text">#fff2f2f2</color>
+
+    <color name="fab_color_pressed">#007787</color>
+    <color name="fab_color_shadow">#44000000</color>
+    <color name="text_like_counter">#2b5a83</color>
+    <color name="paint_color">#dddddd</color>
+
+    <color name="white_transparent">#85cfcdcd</color>
+
+
+    <color name="white_transparant">#d1f7f4f4</color>
+    <color name="green_online">#009e1c</color>
+    <color name="green_offline">#73c481</color>
+    <color name="toolbar_text">#8f000000</color>
+    <color name="linkedin_blue">#0073b1</color>
+    <color name="linkedin_blued">#84BFE4</color>
+    <color name="linkedin_blued_trns">#CB84BFE4</color>
+
+    <color name="linkedin_blued_white_shad">#BCD5DD</color>
+    <color name="linkedin_blued1">#7FD2D5</color>
+
+    <color name="linkedin_blue_transparent">#970073B1</color>
+    <color name="linkedin_blue_transparent_high">#600073B1</color>
+
+
+    <color name="linkedin_blue_pressed">#F32A7DAB</color>
+    <color name="linkedin_blue_pressed_hint">#BF3E6D87</color>
+    <color name="linkedin_blue_pressed2">#B2436170</color>
+
+    <color name="bg_gradient_start">#31244e</color>
+    <color name="bg_gradient_end">#6b394c</color>
+    <color name="black_dim">#d0646363</color>
+
+    <color name="editTextLineColor">#e43e3e</color>
+    <color name="redColor">#1A5276</color>
+    <color name="login_segments_bacground">#85edebe7</color>
+    <color name="tab_colorTransparant">#d667393b</color>
+    <color name="whiteColor">#ffffff</color>
+    <color name="doNotPayBGColor">#e43e3e</color>
+    <color name="doNotPayTextColor">#ffffff</color>
+    <color name="blueColor">#2980B9</color>
+    <color name="greenColor">#19b9be</color>
+    <color name="timingBackground">#64c737</color>
+    <color name="timingBackgroundWithTransperancy">#b07cb342</color>
+    <color name="blackColor">#000000</color>
+
+    <color name="imageCircularColor">#1A5276</color>
+    <color name="hintColor">#D3CFCF</color>
+    <color name="hintColorW">#E1D9D9</color>
+
+    <color name="buttonTextColor">#ffffff</color>
+    <color name="customRowTextColor">#000000</color>
+
+    <color name="backgroundTranspearent">#8dfde5e5</color>
+    <color name="addressColor">#504e4e</color>
+    <color name="practiceBackground">#03a18a</color>
+    <color name="litWhiltColor">#deffffff</color>
+    <color name="headingColor">#504e4e</color>
+    <color name="belowHeadingTextColor">#000000</color>
+    <color name="landingScreenBackgroundColor">#112a4e</color>
+
+    <color name="noAvailableColor">#112a4e</color>
+    <color name="formBackground">#eaeaea</color>
+    <color name="headingBackground">#eaeaea</color>
+
+    <color name="colorGray">#808080</color>
+    <color name="alarmStripBackground">#e5e5d8</color>
+    <color name="whithint">#C2C2B7</color>
+    <color name="questionTextColor">#000000</color>
+    <color name="questionOptionNameColor">#ffffff</color>
+    <color name="explanationTextColor">#ffffff</color>
+    <color name="explanationBackground">#3b5998</color>
+    <color name="colorWhiteTrans">#6FEBE6E6</color>
+    <color name="color_blue">#2863a4</color>
+    <color name="goldenColor">#E5C100</color>
+    <color name="universalbarcolor">#112a4e</color>
+    <color name="silver">#e2dfdf</color>
+    <color name="silvershine">#c4cace</color>
+    <!-- Screens background color-->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#c873f4</color>
+    <color name="bg_screen5">#306833</color>
+    <color name="bg_screen6">#a7fae5</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#d1395c</color>
+
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#a854d4</color>
+    <color name="dot_dark_screen5">#05de71</color>
+    <color name="dot_dark_screen6">#df6856</color>
+    <color name="gray_light">#4d4d4d</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen21">#D278AEA6</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#e4b5fc</color>
+    <color name="dot_light_screen5">#8b7894</color>
+    <color name="ç">#b2d4c3</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+        <item>@color/dot_light_screen5</item>
+
+    </array>
+
+</resources>

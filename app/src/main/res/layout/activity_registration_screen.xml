@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/linkedin_blue">
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/adding_new_customer"
+                    android:fontFamily="@font/normal_text_font"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:id="@+id/iv_back_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:src="?android:attr/homeAsUpIndicator"
+                    app:tint="@color/white" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_person_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/circle_background">
+
+                <ImageView
+                    android:id="@+id/iv_person"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/person_icon_d_shaded"/>
+
+
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp">
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/edit_text_background">
+                            <EditText
+                                android:id="@+id/et_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:textColorHint="@color/light_grey_t"
+                                android:textColor="@color/black"
+                                android:maxLines="1"
+                                android:fontFamily="@font/normal_text_font"
+                                android:singleLine="true"
+                                android:inputType="textCapWords"
+                                android:hint="@string/person_name"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edit_text_background">>
+                            <EditText
+                                android:id="@+id/et_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:textColorHint="@color/light_grey_t"
+                                android:textColor="@color/black"
+                                android:inputType="number"
+                                android:fontFamily="@font/normal_text_font"
+                                android:maxLength="11"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:hint="@string/phone_number"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edit_text_background">>
+                            <EditText
+                                android:id="@+id/et_email"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:textColorHint="@color/light_grey_t"
+                                android:textColor="@color/black"
+                                android:maxLines="1"
+                                android:fontFamily="@font/normal_text_font"
+                                android:inputType="textEmailAddress"
+                                android:singleLine="true"
+                                android:hint="@string/email"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/ll_shop_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edit_text_background">>
+                            <EditText
+                                android:id="@+id/et_company_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:textColorHint="@color/light_grey_t"
+                                android:textColor="@color/black"
+                                android:maxLines="1"
+                                android:fontFamily="@font/normal_text_font"
+                                android:singleLine="true"
+                                android:inputType="textCapWords"
+                                android:hint="@string/shop_name"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_designation"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edit_text_background">>
+                            <EditText
+                                android:id="@+id/et_designation"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:textColorHint="@color/light_grey_t"
+                                android:textColor="@color/black"
+                                android:maxLines="1"
+                                android:fontFamily="@font/normal_text_font"
+                                android:inputType="textCapWords"
+                                android:singleLine="true"
+                                android:hint="@string/designation"/>
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/edit_text_background">>
+
+                            <AutoCompleteTextView
+                                android:id="@+id/et_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/light_grey_t"
+                                android:hint="@string/address"
+                                android:fontFamily="@font/normal_text_font"
+                                android:background="@null" />
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tv_assignment_detail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/booking_instructions"
+                            android:fontFamily="@font/normal_text_font"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="22dp"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="40dp">
+                                <TextView
+                                    android:id="@+id/tv_size"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/normal_text_font"
+                                    android:text="@string/instruction_for_booking"
+                                    android:textColor="@color/black"
+                                    android:layout_marginTop="8dp"/>
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_send_invitation"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/linkedin_blue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/normal_text_font"
+                android:text="@string/signup"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_lat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/tv_lng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="@color/colorWhiteTrans"/>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/linkedin_blue" />
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

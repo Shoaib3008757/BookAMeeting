@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">BAM</string>
+
+    <string name="item_code">Type</string>
+    <string name="unit">Unit</string>
+    <string name="unit_price">Unit Price</string>
+    <string name="UP">U.P</string>
+    <string name="rs">Rs.</string>
+    <string name="discounted_price">Trade Price</string>
+    <string name="total">Total :</string>
+    <string name="manufecture_date">Manufacture Date:</string>
+    <string name="adding_new_customer">Adding New Staff</string>
+    <string name="person_name">Person Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="shop_name">Shop Name</string>
+
+    <string name="designation">Designation</string>
+    <string name="address">Address</string>
+    <string name="booking_instructions">Booking Instructions</string>
+    <string name="instruction_for_booking">Instructions for booking</string>
+    <string name="signup">Sign Up</string>
+    <string name="add_members">Add Members</string>
+
+    <string name="assigning">Assigning</string>
+    <string name="salesman">Salesman</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone#</string>
+</resources>

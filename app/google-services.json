@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "480552381627",
+    "firebase_url": "https://shaadi-ki-pehli-raat.firebaseio.com",
+    "project_id": "shaadi-ki-pehli-raat",
+    "storage_bucket": "shaadi-ki-pehli-raat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480552381627:android:fe7ab605960e9216",
+        "android_client_info": {
+          "package_name": "com.apiapp.shadikipehli10ratain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480552381627-mfef6a0itgr3cv8hpatfr7jhd84td3o7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.apiapp.shadikipehli10ratain",
+            "certificate_hash": "9b110158d630e15445b433cbe442f805882d07d7"
+          }
+        },
+        {
+          "client_id": "480552381627-j450jo0cuib7l75e3kfjrtvhv2208fb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMFjjyVi_Q2VzkdhuZa5HeSMddiHsZw3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480552381627-j450jo0cuib7l75e3kfjrtvhv2208fb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480552381627:android:82d67003f6dbe0be",
+        "android_client_info": {
+          "package_name": "com.apniapp.shadikipehliraat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480552381627-e2c8dk4ma8arq3varu6h6ri3fbtokt0h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.apniapp.shadikipehliraat",
+            "certificate_hash": "9b110158d630e15445b433cbe442f805882d07d7"
+          }
+        },
+        {
+          "client_id": "480552381627-j450jo0cuib7l75e3kfjrtvhv2208fb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMFjjyVi_Q2VzkdhuZa5HeSMddiHsZw3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480552381627-j450jo0cuib7l75e3kfjrtvhv2208fb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480552381627:android:2930c872b547075eedcd9e",
+        "android_client_info": {
+          "package_name": "com.shoaib.bam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480552381627-076u15jt0q1ofim3akjf709he7kfn600.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shoaib.bam",
+            "certificate_hash": "95a84e9b2409ab29835591b4a45016728e2552b1"
+          }
+        },
+        {
+          "client_id": "480552381627-j450jo0cuib7l75e3kfjrtvhv2208fb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMFjjyVi_Q2VzkdhuZa5HeSMddiHsZw3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480552381627-j450jo0cuib7l75e3kfjrtvhv2208fb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

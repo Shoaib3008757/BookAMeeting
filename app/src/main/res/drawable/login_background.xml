@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <gradient
+                android:startColor="@color/linkedin_blued_trns"
+                android:centerColor="@color/linkedin_blued1"
+                android:centerY="0"
+                android:endColor="@color/linkedin_blued"
+                android:angle="270"
+                />
+        </shape>
+    </item>
+
+</layer-list>

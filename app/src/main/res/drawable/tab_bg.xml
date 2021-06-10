@@ -1,0 +1,7 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true"
+        android:drawable="@color/linkedin_blue"
+        android:color="@color/white"/>
+    <item android:drawable="@color/white"
+        android:color="@color/linkedin_blue"/>
+</selector>

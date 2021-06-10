@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+
+    <stroke android:width="0.01dp"
+        android:color="@color/linkedin_blued" />
+
+    <gradient
+        android:angle="180"
+        android:endColor="@color/linkedin_blued1"
+        android:startColor="@color/linkedin_blued"
+        android:useLevel="false" />
+
+    <size
+        android:width="40dp"
+        android:height="40dp"/>
+</shape>
