@@ -47,20 +47,8 @@ public class MainScreen extends BaseActivityForDrawer {
     protected void onResume() {
         super.onResume();
 
-
-
     }
 
-    private void viewBookingsClickHandler()
-    {
-        rl_view_bookings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //callingImageSelectListener();
-                startActivity(new Intent(MainScreen.this, ScheduledScreen.class));
-            }
-        });
-    }
 
     private void openDrawser()
     {
@@ -84,11 +72,22 @@ public class MainScreen extends BaseActivityForDrawer {
         }
     }
 
+    private void viewBookingsClickHandler()
+    {
+        rl_view_bookings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //callingImageSelectListener();
+                startActivity(new Intent(MainScreen.this, ViewBookedMeetingsScreen.class));
+            }
+        });
+    }
+
     private void createRequestClick() {
         rl_create_booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainScreen.this, BookAMeetingScreen.class));
+                startActivity(new Intent(MainScreen.this, ScheduledScreen.class));
             }
         });
     }

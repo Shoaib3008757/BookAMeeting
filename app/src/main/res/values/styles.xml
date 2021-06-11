@@ -79,6 +79,11 @@
         <item name="android:layout_marginLeft">5dp</item>
     </style>
 
+    <style name="datepicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/linkedin_blue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/linkedin_blue</item>
+    </style>
 
     <style name="Swipe_Layout_CheckMark_Visibility">
         <item name="android:visibility">invisible</item>

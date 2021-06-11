@@ -26,4 +26,7 @@
     <string name="salesman">Salesman</string>
     <string name="name">Name</string>
     <string name="phone">Phone#</string>
+
+    <string name="selectDate">Tap to Select Date</string>
+    <string name="selectTime">Tap to Select Time</string>
 </resources>

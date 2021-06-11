@@ -148,4 +148,55 @@ public class ModelsClasses {
 
         }
     }
+
+    public static class ScheduledMeetings
+    {
+        public String meetingId;
+        public String roomId;
+        public String roomName;
+        public String bookedtimeStemp;
+        public String bookStartDate;
+        public String bookStartTime;
+        public String bookendEndDate;
+        public String bookEndTime;
+        public String bookingDurationTimeStemp;
+        public String bookingDuration;
+        public String bookByName;
+        public String bookById;
+        public String officeId;
+        public String officeName;
+        public String meetingStatus;
+        public String meetingDescription;
+
+
+
+        public ScheduledMeetings(){}
+
+        public ScheduledMeetings(String meetingId, String roomId, String roomName,
+                                 String bookedtimeStemp, String bookStartDate, String bookStartTime,
+                                 String bookendEndDate, String bookEndTime, String bookingDurationTimeStemp,
+                                 String bookingDuration, String bookByName, String bookById,
+                                 String officeId, String officeName, String meetingStatus,
+                                 String meetingDescription)
+        {
+            this.meetingId = meetingId;
+            this.roomId = roomId;
+            this.roomName = roomName;
+            this.bookedtimeStemp = bookedtimeStemp;
+            this.bookStartDate = bookStartDate;
+            this.bookStartTime = bookStartTime;
+            this.bookendEndDate = bookendEndDate;
+            this.bookEndTime = bookEndTime;
+            this.bookingDurationTimeStemp = bookingDurationTimeStemp;
+            this.bookingDuration = bookingDuration;
+            this.bookByName = bookByName;
+            this.bookById = bookById;
+            this.officeId = officeId;
+            this.officeName = officeName;
+            this.meetingStatus  = meetingStatus;
+            this.meetingDescription  = meetingDescription;
+
+        }
+
+    }
 }

@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:background="@drawable/simple_bg">
 
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -45,7 +44,7 @@
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:text=" View Bookings"
-                        android:textSize="25sp"
+                        android:textSize="22sp"
                         android:layout_centerInParent="true" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -62,7 +61,7 @@
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:text="Book Meeting Room"
-                        android:textSize="25sp"
+                        android:textSize="22sp"
                         android:layout_centerInParent="true" />
                 </RelativeLayout>
             </LinearLayout>

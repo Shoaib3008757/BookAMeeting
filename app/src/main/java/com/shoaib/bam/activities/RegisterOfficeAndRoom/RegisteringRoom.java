@@ -278,9 +278,8 @@ public class RegisteringRoom extends AppCompatActivity {
                 {
                     for (DataSnapshot office : snapshot.getChildren())
                     {
-                        Log.e("TAg", "the reusl beam is sd " + office.getValue());
+
                         ModelsClasses.OfficeModel beam = office.getValue(ModelsClasses.OfficeModel.class);
-                        Log.e("TAg", "the reusl beam is " + beam);
                          String officeId = beam.officeId;
                          String name = beam.name;
                          String address = beam.address;
