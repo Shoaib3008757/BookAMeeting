@@ -460,53 +460,40 @@ public class ScheduledScreen extends AppCompatActivity {
         spin_kit.setVisibility(View.VISIBLE);
         rl_bg.setVisibility(View.VISIBLE);
 
+        final DatabaseReference checkRoomAlreadyBooked = FirebaseDatabase.getInstance().getReference(ConstantValues.MeetingPath);
+
+
         final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(ConstantValues.MeetingPath);
+
+        ModelsClasses.ScheduledMeetings data = new ModelsClasses.ScheduledMeetings(
+                meetingId,  roomId,  roomName,
+                String.valueOf(ConstantFunctions.gettingCurrentTimeStepm()),  startDate,  startTime,
+                endDate,  endTime,  bookingDurationTimeStemp,
+                meetingDuration,  userFullName,  myKey,
+                selectedOfficeId, selectedOfficeName, "Pending",
+                meetingDescription);
+
+        mDatabase.child(meetingId).setValue(data);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                if (!snapshot.exists())
-                {
+                if (isAdded) {
+                    spin_kit.setVisibility(View.GONE);
+                    rl_bg.setVisibility(View.GONE);
 
-
-
-
-                    ModelsClasses.ScheduledMeetings data = new ModelsClasses.ScheduledMeetings(
-                            meetingId,  roomId,  roomName,
-                            String.valueOf(ConstantFunctions.gettingCurrentTimeStepm()),  startDate,  startTime,
-                            endDate,  endTime,  bookingDurationTimeStemp,
-                            meetingDuration,  userFullName,  myKey,
-                            selectedOfficeId, selectedOfficeName, "Pending",
-                            meetingDescription);
-
-                    mDatabase.child(roomId).setValue(data);
-                    mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(ScheduledScreen.this);
+                    alert.setTitle("Room Registered Successfully!");
+                    alert.setMessage("Thank you!");
+                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                            if (isAdded) {
-                                spin_kit.setVisibility(View.GONE);
-                                rl_bg.setVisibility(View.GONE);
-
-                                AlertDialog.Builder alert = new AlertDialog.Builder(ScheduledScreen.this);
-                                alert.setTitle("Room Registered Successfully!");
-                                alert.setMessage("Thank you!");
-                                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                        finish();
-                                    }
-                                });
-                                alert.setCancelable(false);
-                                alert.show();
-                                isAdded = false;
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            finish();
                         }
                     });
+                    alert.setCancelable(false);
+                    alert.show();
+                    isAdded = false;
                 }
             }
 

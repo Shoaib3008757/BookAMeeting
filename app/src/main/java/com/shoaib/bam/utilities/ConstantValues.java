@@ -6,7 +6,7 @@ public class ConstantValues {
     public static final String userPath = "AppsBackend/MeetingApp/Users";
     public static final String OfficePath = "AppsBackend/MeetingApp/Offices";
     public static final String RoomPath = "AppsBackend/MeetingApp/Rooms";
-    public static final String MeetingPath = "AppsBackend/MeetingApp/Meetings";
+    public static final String MeetingPath = "AppsBackend/MeetingApp/Meetings/";
     public static final String appRootPath = "AppsBackend/MeetingApp/";
     public static final String USERS = "Users";
 

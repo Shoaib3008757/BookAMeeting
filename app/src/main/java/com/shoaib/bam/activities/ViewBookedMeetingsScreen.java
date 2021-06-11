@@ -45,7 +45,7 @@ public class ViewBookedMeetingsScreen extends AppCompatActivity implements Swipe
     LinearLayoutManager linearLayoutManager;
     ProgressBar progress_bar;
     public MeetingsListAdapter mAdapter;
-    ImageView iv_open_drawer;
+    ImageView iv_back_arrow;
 
     ArrayList<HashMap<String, String>> bookingsList = new ArrayList<>();
 
@@ -65,6 +65,7 @@ public class ViewBookedMeetingsScreen extends AppCompatActivity implements Swipe
         setContentView(R.layout.activity_meeting_screen);
 
         init();
+        onBackArrowClick();
         viewCalendar();
         swipListLoader();
     }
@@ -72,7 +73,7 @@ public class ViewBookedMeetingsScreen extends AppCompatActivity implements Swipe
     private void init(){
         bookingsList = new ArrayList<>();
         rc_list = (RecyclerView) findViewById(R.id.rc_list);
-        iv_open_drawer = (ImageView)  findViewById(R.id.iv_open_drawer);
+        iv_back_arrow = (ImageView)  findViewById(R.id.iv_back_arrow);
         linearLayoutManager = new LinearLayoutManager(ViewBookedMeetingsScreen.this, LinearLayoutManager.VERTICAL, false);
         rc_list.setLayoutManager(linearLayoutManager);
         progress_bar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -87,6 +88,15 @@ public class ViewBookedMeetingsScreen extends AppCompatActivity implements Swipe
         
     }
 
+    private void onBackArrowClick()
+    {
+        iv_back_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -240,7 +250,7 @@ public class ViewBookedMeetingsScreen extends AppCompatActivity implements Swipe
     private void viewCalendar()
     {
         final Calendar endDate = Calendar.getInstance();
-        endDate.add(Calendar.MONTH, 0);
+        endDate.add(Calendar.MONTH, 1);
         Calendar startDate = Calendar.getInstance();
         startDate.add(Calendar.MONTH, -1);
 
