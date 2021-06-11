@@ -11,6 +11,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +32,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.shoaib.bam.Adapters.CustomListAdapter;
 import com.shoaib.bam.Interfaces.CustomListItemClick;
@@ -65,6 +67,10 @@ public class ScheduledScreen extends AppCompatActivity {
     String selectedOfficeName = "";
     String selectedOfficeId = "";
     boolean isAdded = true;
+    boolean isSlotBooked = false;
+
+    DatabaseReference meetingDBref;
+    ValueEventListener meetingsListener=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,11 +227,18 @@ public class ScheduledScreen extends AppCompatActivity {
 
                                 String meetingDuration = ConstantFunctions.timeUnitToFullTime(timeDiff, TimeUnit.MILLISECONDS);
 
+                                long bookedTimeStempStart = Long.parseLong(ConstantFunctions.dateTimeToTimeStemp(startDate, startTime));
+                                long currentTimeStemp = ConstantFunctions.gettingCurrentTimeStepm();
+                                if(currentTimeStemp>bookedTimeStempStart)
+                                {
+                                    Toast.makeText(ScheduledScreen.this, "Start Time not Valid", Toast.LENGTH_SHORT).show();
+                                }else {
 
-                                insertIntoMeeting(roomName, roomId, selectedOfficeId,
-                                        selectedOfficeName, startDate,
-                                        startTime, endDate, endTime,
-                                        meetingDuration, String.valueOf(timeDiff), description);
+                                    insertIntoMeeting(roomName, roomId, selectedOfficeId,
+                                            selectedOfficeName, startDate,
+                                            startTime, endDate, endTime,
+                                            meetingDuration, String.valueOf(timeDiff), description);
+                                }
                             }
                     }
             }
@@ -350,7 +363,6 @@ public class ScheduledScreen extends AppCompatActivity {
                          String BookToTime = beam.BookToTime;
                          String BookFromDate = beam.BookFromDate;
                          String BookToDate = beam.BookToDate;
-                         
 
                         HashMap<String, String> map = new HashMap<>();
                         map.put(ConstantValues.officeId, roomId);
@@ -411,6 +423,15 @@ public class ScheduledScreen extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (meetingsListener!=null)
+        {
+            meetingDBref.removeEventListener(meetingsListener);
+        }
+    }
+
     private void customeListSelectionPop(ArrayList<HashMap<String, String>> list, final int type)// type 0 for top list, 1 for sub1 and 2 for sub2
     {
         final Dialog dialog = new Dialog(ScheduledScreen.this);
@@ -460,48 +481,228 @@ public class ScheduledScreen extends AppCompatActivity {
         spin_kit.setVisibility(View.VISIBLE);
         rl_bg.setVisibility(View.VISIBLE);
 
-        final DatabaseReference checkRoomAlreadyBooked = FirebaseDatabase.getInstance().getReference(ConstantValues.MeetingPath);
-
-
-        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(ConstantValues.MeetingPath);
-
-        ModelsClasses.ScheduledMeetings data = new ModelsClasses.ScheduledMeetings(
-                meetingId,  roomId,  roomName,
-                String.valueOf(ConstantFunctions.gettingCurrentTimeStepm()),  startDate,  startTime,
-                endDate,  endTime,  bookingDurationTimeStemp,
-                meetingDuration,  userFullName,  myKey,
-                selectedOfficeId, selectedOfficeName, "Pending",
-                meetingDescription);
-
-        mDatabase.child(meetingId).setValue(data);
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        meetingDBref = FirebaseDatabase.getInstance().getReference(ConstantValues.MeetingPath);
+        meetingsListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                if (isAdded) {
-                    spin_kit.setVisibility(View.GONE);
-                    rl_bg.setVisibility(View.GONE);
+                if (snapshot.exists())
+                {
+                    isSlotBooked = false;
+                    for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                        ModelsClasses.ScheduledMeetings model = postSnapshot.getValue(ModelsClasses.ScheduledMeetings.class);
 
-                    AlertDialog.Builder alert = new AlertDialog.Builder(ScheduledScreen.this);
-                    alert.setTitle("Room Registered Successfully!");
-                    alert.setMessage("Thank you!");
-                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                            finish();
+                        String meetingId = model.meetingId;
+                        String bookedroomId = model.roomId;
+                        String roomName = model.roomName;
+                        String bookedtimeStemp = model.bookedtimeStemp;
+                        String bookStartDate = model.bookStartDate;
+                        String bookStartTime = model.bookStartTime;
+                        String bookendEndDate = model.bookendEndDate;
+                        String bookEndTime = model.bookEndTime;
+                        String bookingDurationTimeStempServer = model.bookingDurationTimeStemp;
+                        String bookingDuration = model.bookingDuration;
+                        String bookByName = model.bookByName;
+                        String bookById = model.bookById;
+                        String officeId = model.officeId;
+                        String officeName = model.officeName;
+                        String meetingStatus = model.meetingStatus;
+
+                        if (roomId.equalsIgnoreCase(bookedroomId)) {
+
+                            long bookedTimeStempStart = Long.parseLong(ConstantFunctions.dateTimeToTimeStemp(bookStartDate, bookStartTime));
+                            long bookedTimeStempEnd = Long.parseLong(ConstantFunctions.dateTimeToTimeStemp(bookendEndDate, bookEndTime));
+                            long selectedTimeStempStart = Long.parseLong(ConstantFunctions.dateTimeToTimeStemp(startDate, startTime));
+                            long selectedTimeStempEnd = Long.parseLong(ConstantFunctions.dateTimeToTimeStemp(endDate, endTime));
+
+                            if(bookedTimeStempEnd>selectedTimeStempStart)
+                            {
+                                if(selectedTimeStempStart>bookedTimeStempStart)
+                                {
+                                    isSlotBooked = true;
+                                }
+                                if(selectedTimeStempEnd>bookedTimeStempStart)
+                                {
+                                    isSlotBooked = true;
+                                }
+                            }
+
                         }
-                    });
-                    alert.setCancelable(false);
-                    alert.show();
-                    isAdded = false;
-                }
+                    }//end of loop
+
+                    if (isSlotBooked)
+                    {
+                        slotNotAvailableDialog();
+                        spin_kit.setVisibility(View.GONE);
+                        rl_bg.setVisibility(View.GONE);
+
+                    }else
+                        {
+                            final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(ConstantValues.MeetingPath);
+                            ModelsClasses.ScheduledMeetings data = new ModelsClasses.ScheduledMeetings(
+                                    meetingId,  roomId,  roomName,
+                                    String.valueOf(ConstantFunctions.gettingCurrentTimeStepm()),  startDate,  startTime,
+                                    endDate,  endTime,  bookingDurationTimeStemp,
+                                    meetingDuration,  userFullName,  myKey,
+                                    selectedOfficeId, selectedOfficeName, "Pending",
+                                    meetingDescription);
+
+                            mDatabase.child(meetingId).setValue(data);
+                            mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                                    if (isAdded) {
+                                        spin_kit.setVisibility(View.GONE);
+                                        rl_bg.setVisibility(View.GONE);
+
+                                        successDialog();
+                                        isAdded = false;
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    Log.e("TAg", "the here are values current selected slot booked " + isSlotBooked);
+                }else
+                    {
+                        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(ConstantValues.MeetingPath);
+                        ModelsClasses.ScheduledMeetings data = new ModelsClasses.ScheduledMeetings(
+                                meetingId,  roomId,  roomName,
+                                String.valueOf(ConstantFunctions.gettingCurrentTimeStepm()),  startDate,  startTime,
+                                endDate,  endTime,  bookingDurationTimeStemp,
+                                meetingDuration,  userFullName,  myKey,
+                                selectedOfficeId, selectedOfficeName, "Pending",
+                                meetingDescription);
+
+                        mDatabase.child(meetingId).setValue(data);
+                        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                                if (isAdded) {
+                                    spin_kit.setVisibility(View.GONE);
+                                    rl_bg.setVisibility(View.GONE);
+
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(ScheduledScreen.this);
+                                    alert.setTitle("Room Registered Successfully!");
+                                    alert.setMessage("Thank you!");
+                                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                            finish();
+                                        }
+                                    });
+                                    alert.setCancelable(false);
+                                    alert.show();
+                                    isAdded = false;
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                            }
+                        });
+                    }
             }
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
             }
+        };
+        Query query = meetingDBref.orderByChild(ConstantValues.bookStartDate).equalTo(tv_date.getText().toString());
+        query.addListenerForSingleValueEvent(meetingsListener);
+
+    }
+
+    private void slotNotAvailableDialog()
+    {
+
+        final Dialog dialog = new Dialog(ScheduledScreen.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.general_dialog_layout);
+        TextView tv_title = (TextView) dialog.findViewById(R.id.tv_title);
+        TextView tv_line_separator = (TextView) dialog.findViewById(R.id.tv_line_separator);
+        TextView tv_description = (TextView) dialog.findViewById(R.id.tv_description);
+        TextView tv_left_text = (TextView) dialog.findViewById(R.id.tv_left_text);
+        TextView tv_right_text = (TextView) dialog.findViewById(R.id.tv_right_text);
+        RelativeLayout rl_left = (RelativeLayout) dialog.findViewById(R.id.rl_left);
+        RelativeLayout rl_right = (RelativeLayout) dialog.findViewById(R.id.rl_right);
+
+        tv_title.setText("Slot Not Available!");
+        tv_description.setText("Room is already booked on selected time slot. Please Book on different Time and Date Range");
+        rl_left.setVisibility(View.GONE);
+        tv_line_separator.setVisibility(View.GONE);
+        tv_left_text.setText("Ok");
+        tv_right_text.setText("Ok");
+
+        rl_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+
+            }
         });
+
+        rl_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        dialog.show();
+
+    }
+
+    private void successDialog()
+    {
+
+        final Dialog dialog = new Dialog(ScheduledScreen.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.general_dialog_layout);
+        TextView tv_title = (TextView) dialog.findViewById(R.id.tv_title);
+        TextView tv_line_separator = (TextView) dialog.findViewById(R.id.tv_line_separator);
+        TextView tv_description = (TextView) dialog.findViewById(R.id.tv_description);
+        TextView tv_left_text = (TextView) dialog.findViewById(R.id.tv_left_text);
+        TextView tv_right_text = (TextView) dialog.findViewById(R.id.tv_right_text);
+        RelativeLayout rl_left = (RelativeLayout) dialog.findViewById(R.id.rl_left);
+        RelativeLayout rl_right = (RelativeLayout) dialog.findViewById(R.id.rl_right);
+
+        tv_title.setText("Meeting Room Booked Successfully!");
+        tv_description.setText("Thank You! your meeting room has been booked");
+        rl_left.setVisibility(View.GONE);
+        tv_line_separator.setVisibility(View.GONE);
+        tv_left_text.setText("Ok");
+        tv_right_text.setText("Ok");
+
+        rl_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                finish();
+
+            }
+        });
+
+        rl_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        dialog.show();
 
     }
 }
