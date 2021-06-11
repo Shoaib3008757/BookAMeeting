@@ -585,18 +585,7 @@ public class ScheduledScreen extends AppCompatActivity {
                                     spin_kit.setVisibility(View.GONE);
                                     rl_bg.setVisibility(View.GONE);
 
-                                    AlertDialog.Builder alert = new AlertDialog.Builder(ScheduledScreen.this);
-                                    alert.setTitle("Room Registered Successfully!");
-                                    alert.setMessage("Thank you!");
-                                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
-                                            finish();
-                                        }
-                                    });
-                                    alert.setCancelable(false);
-                                    alert.show();
+                                    successDialog();
                                     isAdded = false;
                                 }
                             }

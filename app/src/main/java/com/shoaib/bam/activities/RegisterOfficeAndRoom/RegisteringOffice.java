@@ -49,7 +49,7 @@ public class RegisteringOffice extends AppCompatActivity {
         init();
         gettingIntentValues();
         onBackArrowClilckHandler();
-        onSendInvitationClickHandler();
+        onRegisterOfficeClickHandler();
     }
 
     private void init()
@@ -88,7 +88,7 @@ public class RegisteringOffice extends AppCompatActivity {
 
     }
 
-    private void onSendInvitationClickHandler()
+    private void onRegisterOfficeClickHandler()
     {
         rl_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,73 +171,55 @@ public class RegisteringOffice extends AppCompatActivity {
 
         //uploading to database
         final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(ConstantValues.OfficePath);
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        ModelsClasses.OfficeModel data = new ModelsClasses.OfficeModel(officeId, officeName, officeAddrress,
+                "", "", "no",
+                officeOwnerName, "BAM", "",
+                "", officePhoneNumber);
+
+        //Adding values
+        mDatabase.child(officeId).setValue(data);
+        mDatabase.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (!dataSnapshot.exists()){
-                    ModelsClasses.OfficeModel data = new ModelsClasses.OfficeModel(officeId, officeName, officeAddrress,
-                            "", "", "no",
-                            officeOwnerName, "BAM", "",
-                            "", officePhoneNumber);
-
-                    //Adding values
-                    mDatabase.child(officeId).setValue(data);
-                    mDatabase.addChildEventListener(new ChildEventListener() {
-                        @Override
-                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                            if (officeAdded) {
-                                spin_kit.setVisibility(View.GONE);
-                                rl_bg.setVisibility(View.GONE);
-
-                                AlertDialog.Builder alert = new AlertDialog.Builder(RegisteringOffice.this);
-                                alert.setTitle("Office Registered Successfully!");
-                                alert.setMessage("Thank you!");
-                                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                        finish();
-                                    }
-                                });
-                                alert.setCancelable(false);
-                                alert.show();
-                                officeAdded = false;
-                            }
-
-                        }
-
-                        @Override
-                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                            Log.e("TAG", "the values 2 ");
-                        }
-
-                        @Override
-                        public void onChildRemoved(DataSnapshot dataSnapshot) {
-                            Log.e("TAG", "the values 3 ");
-                        }
-
-                        @Override
-                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                            Log.e("TAG", "the values 4 ");
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                            Log.e("TAG", "the values 5 ");
-                        }
-                    });
-                }
-                else {
-                    rl_submit.setVisibility(View.VISIBLE);
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if (officeAdded) {
                     spin_kit.setVisibility(View.GONE);
                     rl_bg.setVisibility(View.GONE);
-                    Toast.makeText(RegisteringOffice.this, "Office Already Registered!", Toast.LENGTH_SHORT).show();
+
+                    AlertDialog.Builder alert = new AlertDialog.Builder(RegisteringOffice.this);
+                    alert.setTitle("Office Registered Successfully!");
+                    alert.setMessage("Thank you!");
+                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            finish();
+                        }
+                    });
+                    alert.setCancelable(false);
+                    alert.show();
+                    officeAdded = false;
                 }
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Log.e("TAG", "the values 2 ");
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Log.e("TAG", "the values 3 ");
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                Log.e("TAG", "the values 4 ");
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Log.e("TAG", "the values 5 ");
             }
         });
 
